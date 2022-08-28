@@ -2,4 +2,4 @@
 
 d=$1
 
-./link-grab https://archive.org/download/passwords_202103/passwords.txt | xargs -I {} curl {} | grep $d
+grep "< location: " temp.txt | awk '{print $3}' > temp2.txt && curl < temp2.txt
