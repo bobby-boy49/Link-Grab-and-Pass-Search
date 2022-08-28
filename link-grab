@@ -1,5 +1,5 @@
-#/bin/bash
+#/bin/sh
 
 s=$1
 
-curl -v $s 2>&1 | grep "< location: " | awk '{print $3}'
+curl -vs $s 2>&1 | xargs -0 > temp.txt && grep "< location: " temp.txt | awk '{print $3}'
